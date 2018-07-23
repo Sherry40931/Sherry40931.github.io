@@ -1,0 +1,26 @@
+---
+layout: post
+title:  "CycleGAN"
+date:   2018-07-23 14:00
+categories: paper
+---
+## Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks
+[arxiv](https://arxiv.org/abs/1703.10593) [github](https://github.com/junyanz/CycleGAN)
+
+## Feature:
+1. Unpaired image-to-imgage translation
+2. Cycle-consistency loss
+3. Good result
+
+## Summary:
+1. Network structure:
+![network img](/assets/cycleGAN.png)
+
+2. Objective
+	* GAN loss
+	\\[ \frac{1}{n^{2}} \\]
+	* Cycle loss
+	* Full objective
+
+
+## Result:
