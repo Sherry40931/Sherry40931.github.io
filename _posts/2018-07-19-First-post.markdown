@@ -2,7 +2,7 @@
 layout: post
 title:  "First post"
 date:   2018-07-19 16:08
-categories: jekyll update
+categories: Others
 ---
 This is the very first post of this blog. The trigger that motivates me to start this blog is the need to store my reading notes for research paper. As the amount of reading grows, it is getting hard to recall all of them. Therefore I think blogging might be a good way to archive and retrieve this notes and memories.
 
