@@ -1,20 +1,68 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
-
-  {%- include head.html -%}
-
+<html lang="en">
+  {% include head.html %}
   <body>
+      {% include header.html %}
+      <section id="about">
+        {% include about.html %}
+      </section>
+      <section id="projects">
+        
+<!--         {%- if site.posts.size > 0 -%}
+          <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
+          <ul class="post-list">
+            {%- for post in site.posts -%}
+            <li>
+              {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+              <span class="post-meta">{{ post.date | date: date_format }}</span>
+              <h3>
+                <a class="post-link" href="{{ post.url | relative_url }}">
+                  {{ post.title | escape }}
+                </a>
+              </h3>
+              {%- if site.show_excerpts -%}
+                {{ post.excerpt }}
+              {%- endif -%}
+            </li>
+            {%- endfor -%}
+          </ul>
 
-    {%- include header.html -%}
+        {%- endif -%} -->
+        <div class="user-details">
+          <h1> My Past Projects </h1>
+        </div>
+        {% if site.posts.size > 0 %}
+          {% for post in site.posts %}
+            {% if post.projects %}
+              <div class="user-projects">
+                {% assign remainder = post.projects | modulo: 2 %}
+                {% if remainder == 0 %}
+                  <div class="images-right">
+                {% else %}
+                  <div class="images-left">
+                {% endif %}
+                  <img alt="mountains" src="{{ post.img | '/assets/img/VR_room.png' }}" />
+                </div>
+                
+                {% if remainder == 0 %}
+                  <div class="contents">
+                {% else %}
+                  <div class="contents-right">
+                {% endif %}
 
-    <main class="page-content" aria-label="Content">
-      <div class="wrapper">
+                  <h3> {{ post.title }} </h3>
+<!--                   <ul>
+                    <li> {{ post.skills }} </li>
+                  </ul> -->
+                  <p>{{ post.content }}</p>
+                  <a class="project-link" href="{{ post.link }}"> Demo Video </a>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+        
+      </section>
         {{ content }}
-      </div>
-    </main>
-
-    {%- include footer.html -%}
-
+      {% include footer.html %}
   </body>
-
-</html>
