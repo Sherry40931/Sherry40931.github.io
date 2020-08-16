@@ -1,7 +1,45 @@
- <div class="user-details">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+  google.charts.load("current", {packages:["timeline"]});
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+
+    var container = document.getElementById('example5.1');
+    var chart = new google.visualization.Timeline(container);
+    var dataTable = new google.visualization.DataTable();
+    dataTable.addColumn({ type: 'string', id: 'Id' });
+    dataTable.addColumn({ type: 'string', id: 'Event' });
+    dataTable.addColumn({ type: 'date', id: 'Start' });
+    dataTable.addColumn({ type: 'date', id: 'End' });
+    dataTable.addRows([
+      [ '1', 'B.S. at NTHU', new Date(2017,5,1),  new Date(2018,1,31) ],
+      [ '2', 'Research assistant at IIS, Academia Sinica', new Date(2017,7,3),  new Date(2018,8,31) ],
+      [ '2', 'M.S. at NYU', new Date(2019,1,27), new Date(2020,5,25) ],   
+      [ '1.5', 'Intern at APMIC', new Date(2019,7,15), new Date(2019,12,31) ],
+      // [ '1.5', 'Junior AI scientist at Bank SinoPac ', new Date(2020,6,27), new Date(Date.now()) ],
+
+      ]);
+
+    var options = {
+      timeline: { colorByRowLabel: true, showRowLabels: false, groupByRowLabel: true},
+      colors: ["#eaac8b", "#b56576", "#355070"],
+      enableInteractivity: false
+    };
+
+    chart.draw(dataTable, options);
+  }
+
+</script>
+
+<div class="user-details">
   <h1> About me </h1>
-  <p> {{site.user_description}} </p>
+  <p> {{site.user_description}} </p>  
 </div>
+<div class="user-details">
+  <h1> My latest 3-year experience </h1>
+</div>
+<div id="example5.1" style="height: 250px;"></div>
   <div class="user">
     <!-- <div class="tech">
       <h2>Design</h2>
